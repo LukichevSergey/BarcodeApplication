@@ -1,12 +1,5 @@
-﻿using Microsoft.SqlServer.Server;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
 
@@ -14,14 +7,18 @@ namespace BarcodeApplication
 {
     public partial class Form1 : Form
     {
+
+        private BarcodeFormat selectedFormat = BarcodeFormat.EAN_13;
+
         public Form1()
         {
             InitializeComponent();
+            SetUpDropDownList();
         }
 
         private void encodeButton_Click(object sender, EventArgs e)
         {
-            BarcodeWriter writer = new BarcodeWriter() { Format = BarcodeFormat.QR_CODE };
+            BarcodeWriter writer = new BarcodeWriter() { Format = selectedFormat };
             barcodeImage.Image = writer.Write(encodeText.Text);
         }
 
@@ -33,6 +30,22 @@ namespace BarcodeApplication
             {
                 decodeText.Text = result.Text;
             }
+        }
+
+        private void SetUpDropDownList()
+        {
+            foreach (BarcodeFormat item in Enum.GetValues(typeof(BarcodeFormat)))
+            {
+                dropDownList.Items.Add(item);
+            }
+
+            dropDownList.SelectedIndex = 0;
+        }
+
+        private void dropDownList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedItem = dropDownList.SelectedItem;
+            selectedFormat = (BarcodeFormat)selectedItem;
         }
     }
 }
