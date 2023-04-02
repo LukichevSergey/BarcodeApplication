@@ -21,13 +21,20 @@ namespace BarcodeApplication
 
         private void encodeButton_Click(object sender, EventArgs e)
         {
+            if (encodeText.Text == "")
+            {
+                return;
+            }
+
             BarcodeWriter writer = new BarcodeWriter() { Format = selectedFormat };
-            barcodeImage.Image = writer.Write(encodeText.Text);
+            barcodeImage.Image = writer.Write(decodeText.Text);
 
             BarcodeItem item = new BarcodeItem(selectedFormat, encodeText.Text);
             items.Add(item);
             barcodeItems.Items.Add(item.date);
             barcodeItems.SelectedIndex = barcodeItems.Items.Count - 1;
+
+            encodeText.Text = "";
         }
 
         private void SetUpDropDownList()
@@ -64,9 +71,8 @@ namespace BarcodeApplication
             var selectedItem = items[barcodeItems.SelectedIndex];
             BarcodeWriter writer = new BarcodeWriter() { Format = selectedItem.format };
             barcodeImage.Image = writer.Write(selectedItem.text);
-            encodeText.Text = selectedItem.text;
-            selectedFormat = selectedItem.format;
-            dropDownList.SelectedItem = selectedItem.format;
+            decodeText.Text = selectedItem.text;
+            formatLabel.Text = selectedItem.format.ToString();
         }
     }
 }
