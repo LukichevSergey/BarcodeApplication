@@ -32,11 +32,8 @@
             this.encodeButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.encodeText = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.decodeText = new System.Windows.Forms.TextBox();
-            this.decodeButton = new System.Windows.Forms.Button();
             this.dropDownList = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.barcodeItems = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.barcodeImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,55 +48,29 @@
             // 
             // encodeButton
             // 
-            this.encodeButton.Location = new System.Drawing.Point(364, 301);
+            this.encodeButton.Location = new System.Drawing.Point(355, 262);
             this.encodeButton.Name = "encodeButton";
-            this.encodeButton.Size = new System.Drawing.Size(75, 23);
+            this.encodeButton.Size = new System.Drawing.Size(159, 23);
             this.encodeButton.TabIndex = 1;
-            this.encodeButton.Text = "Encode";
+            this.encodeButton.Text = "Сгенерировать штрих-код";
             this.encodeButton.UseVisualStyleBackColor = true;
             this.encodeButton.Click += new System.EventHandler(this.encodeButton_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(144, 239);
+            this.label1.Location = new System.Drawing.Point(141, 239);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Encode";
+            this.label1.Text = "Данные штрих-кода";
             // 
             // encodeText
             // 
-            this.encodeText.Location = new System.Drawing.Point(194, 236);
+            this.encodeText.Location = new System.Drawing.Point(255, 236);
             this.encodeText.Name = "encodeText";
-            this.encodeText.Size = new System.Drawing.Size(326, 20);
+            this.encodeText.Size = new System.Drawing.Size(265, 20);
             this.encodeText.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(144, 265);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Decode";
-            // 
-            // decodeText
-            // 
-            this.decodeText.Location = new System.Drawing.Point(194, 262);
-            this.decodeText.Name = "decodeText";
-            this.decodeText.Size = new System.Drawing.Size(326, 20);
-            this.decodeText.TabIndex = 5;
-            // 
-            // decodeButton
-            // 
-            this.decodeButton.Location = new System.Drawing.Point(445, 301);
-            this.decodeButton.Name = "decodeButton";
-            this.decodeButton.Size = new System.Drawing.Size(75, 23);
-            this.decodeButton.TabIndex = 6;
-            this.decodeButton.Text = "Decode";
-            this.decodeButton.UseVisualStyleBackColor = true;
-            this.decodeButton.Click += new System.EventHandler(this.decodeButton_Click);
             // 
             // dropDownList
             // 
@@ -111,24 +82,22 @@
             this.dropDownList.TabIndex = 8;
             this.dropDownList.SelectedIndexChanged += new System.EventHandler(this.dropDownList_SelectedIndexChanged);
             // 
-            // listBox1
+            // barcodeItems
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 13);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 199);
-            this.listBox1.TabIndex = 9;
+            this.barcodeItems.FormattingEnabled = true;
+            this.barcodeItems.Location = new System.Drawing.Point(13, 13);
+            this.barcodeItems.Name = "barcodeItems";
+            this.barcodeItems.Size = new System.Drawing.Size(120, 199);
+            this.barcodeItems.TabIndex = 9;
+            this.barcodeItems.SelectedIndexChanged += new System.EventHandler(this.barcodeItems_SelectedIndexChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 338);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(529, 296);
+            this.Controls.Add(this.barcodeItems);
             this.Controls.Add(this.dropDownList);
-            this.Controls.Add(this.decodeButton);
-            this.Controls.Add(this.decodeText);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.encodeText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.encodeButton);
@@ -147,11 +116,8 @@
         private System.Windows.Forms.Button encodeButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox encodeText;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox decodeText;
-        private System.Windows.Forms.Button decodeButton;
         private System.Windows.Forms.ComboBox dropDownList;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox barcodeItems;
     }
 }
 
